@@ -19,8 +19,8 @@ corr, _ = pearsonr(df["radio"], df["sales"])
 
 df_zscore = df.loc[:,["tv","sales"]]
 
-df_zscore["tv_zscore"] = zscore(df["tv"]).abs()
-df_zscore["sales_zscore"] = zscore(df["sales"]).abs()
+df_zscore["tv_zscore"] = np.abs(zscore(df["tv"]))
+df_zscore["sales_zscore"] = np.abs(zscore(df["sales"]))
 
 outliers = df_zscore.loc[(df_zscore["tv_zscore"] > 3) | (df_zscore["sales_zscore"] > 3),:]
 
