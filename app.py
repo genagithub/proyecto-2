@@ -90,7 +90,7 @@ def update_dash(slct_var):
     
     var_title = "Campaña publicitaria en TV ($)"
     
-    if slct_var == "Sales":
+    if slct_var == "sales":
         var_title = "Ventas ($)"
     else:
         var_title = var_title
