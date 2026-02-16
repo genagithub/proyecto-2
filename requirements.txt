@@ -3,7 +3,7 @@ numpy
 scipy
 matplotlib
 seaborn
-ploty
+plotly
 dash
 scikit-learn
 gunicorn
