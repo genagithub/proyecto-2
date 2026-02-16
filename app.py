@@ -45,6 +45,7 @@ objects = df["tv"].sample(n=20).values.reshape((-1,1))
 predicts = linear_regression.predict(objects)
 
 app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div(id="body",className="e2_body",children=[
     html.H1("Marketing sobre Ventas",id="title",className="e2_title"),
