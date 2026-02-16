@@ -1,7 +1,7 @@
 pandas
 numpy
 scipy
-matplotlib.pyplot
+matplotlib
 seaborn
 ploty
 dash
