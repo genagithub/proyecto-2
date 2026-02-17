@@ -83,7 +83,7 @@
     flex-direction:row;
     justify-content:center;
     align-items:center;
-    padding: 5px 45px
+    padding: 5px 60px
 }
 .e2_corr {
     background-color: white;
@@ -98,5 +98,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5px 125px
+    padding: 5px 150px
 }
