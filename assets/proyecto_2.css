@@ -74,7 +74,7 @@
     background-color: white;
     text-align:center;
     font-size:1.25em;
-    width: 179.5px;
+    width: 200px;
     height: 40px;
     font-family:"no-roboto", sans-serif;
     box-shadow:4px 4px 15px 0 black;
@@ -83,7 +83,7 @@
     flex-direction:row;
     justify-content:center;
     align-items:center;
-    padding: 4.5px 45px
+    padding: 5px 45px
 }
 .e2_corr {
     background-color: white;
@@ -91,7 +91,7 @@
     font-size: 1.25em;
     font-family:"no-roboto", sans-serif;
     height: 40px;
-    width: 300.8px;
+    width: 320px;
     box-shadow: 4px 4px 15px 0 black;
     margin: 5px 0 15px 0;
     display: flex;
