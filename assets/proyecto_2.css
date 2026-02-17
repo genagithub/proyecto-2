@@ -78,7 +78,7 @@
     height: 40px;
     font-family:"no-roboto", sans-serif;
     box-shadow:4px 4px 15px 0 black;
-    margin: 0 5px;
+    margin: 0 10px;
     display:flex;
     flex-direction:row;
     justify-content:center;
