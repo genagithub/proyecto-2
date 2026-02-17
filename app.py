@@ -27,8 +27,8 @@ outliers = df_zscore.loc[(df_zscore["tv_zscore"] > 3) | (df_zscore["sales_zscore
 curtosis_x = kurtosis(df["tv"])
 curtosis_y = kurtosis(df["sales"])
 
-_, p_value_var_x = kstest(df["tv"], "norm")
-_, p_value_var_y = kstest(df["sales"], "norm")
+_, p_value_var_x = kstest(df["tv"].values, "norm")
+_, p_value_var_y = kstest(df["sales"].values, "norm")
 
 df["ROI"] = (df["sales"] - df["tv"]) / df["tv"]
 
@@ -65,10 +65,9 @@ app.layout = html.Div(id="body",className="e2_body",children=[
             ])
         ]),
         html.Div(id="column-2",className="e2_column_2",children=[
-            html.H2("Valor-P (Kolmogorov)",id="p_values_title",className="e2_p_values_title"),
             html.Div(id="p_values",className="e2_stats_div",children=[
-                html.Div(id="p_value_var_x",className="e2_stats",children=[html.P(f"Variable X: {round(p_value_var_x, 2)}",style={"font-size":"1em"})]),
-                html.Div(id="p_value_var_y",className="e2_stats",children=[html.P(f"Variable Y: {round(p_value_var_y, 2)}",style={"font-size":"0.98em"})])
+                html.Div(id="p_value_var_x",className="e2_stats",children=[html.P(f"Kolgomorov-test (X): P = {round(p_value_var_x, 1)}",style={"font-size":"1em"})]),
+                html.Div(id="p_value_var_y",className="e2_stats",children=[html.P(f"Kolgomorov-test (Y): P = {round(p_value_var_y, 1)}",style={"font-size":"0.98em"})])
             ]),
             html.Div(f"Correlación lineal: {round(corr,2)}",className="e2_corr",id="corr"),
             dcc.Graph(id="graph-3",className="e2_graph_3",figure={})
