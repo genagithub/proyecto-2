@@ -69,7 +69,7 @@ app.layout = html.Div(id="body",className="e2_body",children=[
                 html.Div(id="p_value_var_x",className="e2_stats",children=[html.P(f"Kolgomorov-test (X): P = {round(p_value_var_x, 1)}",style={"font-size":"1em"})]),
                 html.Div(id="p_value_var_y",className="e2_stats",children=[html.P(f"Kolgomorov-test (Y): P = {round(p_value_var_y, 1)}",style={"font-size":"0.98em"})])
             ]),
-            html.Div(f"Correlación lineal: {round(corr,2)}",className="e2_corr",id="corr"),
+            html.Div(f"Correlación de Pearson: {round(corr,2)}",className="e2_corr",id="corr"),
             dcc.Graph(id="graph-3",className="e2_graph_3",figure={})
         ])
     ])
