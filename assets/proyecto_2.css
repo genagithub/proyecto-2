@@ -78,12 +78,12 @@
     height: 40px;
     font-family:"no-roboto", sans-serif;
     box-shadow:4px 4px 15px 0 black;
-    margin:15px 10px;
+    margin: 5px 10px;
     display:flex;
     flex-direction:row;
     justify-content:center;
     align-items:center;
-    padding:0 40px
+    padding: 1px 40px
 }
 .e2_corr {
     background-color: white;
@@ -98,5 +98,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5px 125px
+    padding: 1px 125px
 }
