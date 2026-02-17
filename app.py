@@ -97,7 +97,7 @@ def update_dash(slct_var):
         
     scatter_radio = go.Figure()
     scatter_radio.add_trace(go.Scatter(x=df[slct_var], y=df["radio"], mode="markers", marker_color="blue"))
-    scatter_radio.update_layout(title="Correlación con el canal Radio", xaxis_title=var_title, yaxis_title="Campaña publicitaria en Radio ($)")
+    scatter_radio.update_layout(title="Correlación con el canal Radio", xaxis_title=var_title, yaxis_title="Campaña Publicitaria en Radio ($)")
     
     histplot = go.Figure(go.Histogram(x=df[slct_var], name="Distribución"))
     histplot.add_trace(go.Scatter(x=[mean,mean], y=[0,100], mode="lines+markers", marker_color="red", name="Media"))
@@ -107,7 +107,7 @@ def update_dash(slct_var):
     linear_regression = go.Figure()
     linear_regression.add_trace(go.Scatter(x=df["tv"], y=df["sales"], mode="markers", marker_color="blue", name="Ventas históricas"))
     linear_regression.add_trace(go.Scatter(x=objects.reshape(-1), y=predicts, mode="lines+markers", marker_color="red", name="Ventas estimadas"))
-    linear_regression.update_layout(title="Frontera de Eficiencia de Inversión Publicitaria", xaxis_title="Campaña publicitaria en TV ($)", yaxis_title=" ")
+    linear_regression.update_layout(title="Frontera de Eficiencia de Inversión Publicitaria", xaxis_title="Campaña Publicitaria en TV ($)", yaxis_title=" ")
 
     return scatter_radio, histplot, linear_regression
 
