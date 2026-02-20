@@ -41,8 +41,8 @@ var_y = df_model["sales"]
 linear_regression = LinearRegression()
 linear_regression.fit(var_x, var_y)
 
-objects = df["tv"].sample(n=20).values.reshape((-1,1))
-predicts = linear_regression.predict(objects)
+objects = df[["tv","sales"]].sample(n=25)
+predicts = linear_regression.predict(objects["tv"].values.reshape((-1,1)))
 
 app = dash.Dash(__name__)
 server = app.server
@@ -105,7 +105,8 @@ def update_dash(slct_var):
     
     linear_regression = go.Figure()
     linear_regression.add_trace(go.Scatter(x=df["tv"], y=df["sales"], mode="markers", marker_color="blue", name="Ventas históricas"))
-    linear_regression.add_trace(go.Scatter(x=objects.reshape(-1), y=predicts, mode="lines+markers", marker_color="red", name="Ventas estimadas"))
+    linear_regression.add_trace(go.Scatter(x=objects["tv"], y=predicts, mode="lines+markers", marker_color="red", name="Ventas estimadas"))
+    linear_regression.add_trace(go.Scatter(x=objects["tv"], y=objects["sales"], mode="markers", marker_color="green", name="Ventas reales"))
     linear_regression.update_layout(title="Frontera de Eficiencia de Inversión Publicitaria", xaxis_title="Campaña Publicitaria en TV ($)", yaxis_title=" ")
 
     return scatter_radio, histplot, linear_regression
