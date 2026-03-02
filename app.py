@@ -48,7 +48,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 app.layout = html.Div(id="body",className="e2_body",children=[
-    html.A(href="https://github.com/genagithub/proyecto-2/blob/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb",target="_blank",children=[html.H1("EDA y Modelado lineal sobre costos e ingresos",id="title",className="e2_title")]),
+    html.A(href="https://github.com/genagithub/proyecto-2/blob/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb",children=[html.H1("EDA y Modelado lineal sobre costos e ingresos",id="title",className="e2_title")]),
     html.Div(id="dashboard",className="e2_dashboard",children=[
         html.Div(id="column-1",className="e2_column_1",children=[
             dcc.Dropdown(id="dropdown",className="e2_dropdown",
