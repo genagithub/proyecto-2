@@ -17,16 +17,6 @@ df.set_index("id", inplace=True)
 
 corr, _ = pearsonr(df["radio"], df["sales"])
 
-df_zscore = df.loc[:,["tv","sales"]]
-
-df_zscore["tv_zscore"] = np.abs(zscore(df["tv"]))
-df_zscore["sales_zscore"] = np.abs(zscore(df["sales"]))
-
-outliers = df_zscore.loc[(df_zscore["tv_zscore"] > 3) | (df_zscore["sales_zscore"] > 3),:]
-
-curtosis_x = kurtosis(df["tv"])
-curtosis_y = kurtosis(df["sales"])
-
 _, p_value_var_x = kstest(df["tv"].values, "norm")
 _, p_value_var_y = kstest(df["sales"].values, "norm")
 
