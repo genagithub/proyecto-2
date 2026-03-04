@@ -47,6 +47,14 @@ predicts = linear_regression.predict(objects["tv"].values.reshape((-1,1)))
 app = dash.Dash(__name__)
 server = app.server
 
+# -------------------
+df_zscore = df.loc[:, "radio"]
+
+df_zscore["radio_zscore"] = zscore(df["radio"]).abs()
+
+outliers_radio = df_zscore.loc[df_zscore["radio_zscore"] > 3, "radio_zscore"].count()
+# -------------------
+
 app.layout = html.Div(id="body",className="e2_body",children=[
     html.A(href="https://github.com/genagithub/proyecto-2/blob/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb",children=[html.H1("EDA y Modelado lineal sobre costos e ingresos",id="title",className="e2_title")]),
     html.Div(id="dashboard",className="e2_dashboard",children=[
@@ -69,7 +77,7 @@ app.layout = html.Div(id="body",className="e2_body",children=[
                 html.Div(id="p_value_var_x",className="e2_stats",children=[html.P(f"Kolgomorov (X): P = {round(p_value_var_x, 1)}",style={"font-size":"1em"})]),
                 html.Div(id="p_value_var_y",className="e2_stats",children=[html.P(f"Kolgomorov (Y): P = {round(p_value_var_y, 1)}",style={"font-size":"0.98em"})])
             ]),
-            html.Div(f"Correlación de Pearson: {round(corr,2)}",className="e2_corr",id="corr"),
+            html.Div(f"Correlación de Pearson: {outliers_radio}",className="e2_corr",id="corr"),
             dcc.Graph(id="graph-3",className="e2_graph_3",figure={})
         ])
     ])
