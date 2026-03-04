@@ -34,12 +34,6 @@ linear_regression.fit(var_x, var_y)
 objects = df[["tv","sales"]].sample(n=25)
 predicts = linear_regression.predict(objects["tv"].values.reshape((-1,1)))
 
-df_zscore = df.loc[:, ["tv","radio"]]
-
-df_zscore["radio_zscore"] = zscore(df["radio"]).abs()
-
-outliers_radio = df_zscore.loc[df_zscore["radio_zscore"] > 3, "radio_zscore"].shape[0]
-
 app = dash.Dash(__name__)
 server = app.server
 
@@ -65,7 +59,7 @@ app.layout = html.Div(id="body",className="e2_body",children=[
                 html.Div(id="p_value_var_x",className="e2_stats",children=[html.P(f"Kolgomorov (X): P = {round(p_value_var_x, 1)}",style={"font-size":"1em"})]),
                 html.Div(id="p_value_var_y",className="e2_stats",children=[html.P(f"Kolgomorov (Y): P = {round(p_value_var_y, 1)}",style={"font-size":"0.98em"})])
             ]),
-            html.Div(f"Correlación de Pearson: {outliers_radio}",className="e2_corr",id="corr"),
+            html.Div(f"Correlación de Pearson: {round(corr,2)}",className="e2_corr",id="corr"),
             dcc.Graph(id="graph-3",className="e2_graph_3",figure={})
         ])
     ])
