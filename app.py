@@ -93,10 +93,12 @@ def update_dash(slct_var):
         var_title = "Ventas Históricas ($)"
     else:
         var_title = var_title
-        
+    
+    corr, _ = pearsonr(df["radio"], df[slct_var])
+
     scatter_radio = go.Figure()
     scatter_radio.add_trace(go.Scatter(x=df[slct_var], y=df["radio"], mode="markers", marker_color="blue"))
-    scatter_radio.update_layout(title="Correlación con el canal Radio", xaxis_title=var_title, yaxis_title="Campaña Publicitaria en Radio ($)")
+    scatter_radio.update_layout(title=f"Correlación con el canal Radio: f{round(corr,2)}", xaxis_title=var_title, yaxis_title="Campaña Publicitaria en Radio ($)")
     
     histplot = go.Figure(go.Histogram(x=df[slct_var], name="Distribución"))
     histplot.add_trace(go.Scatter(x=[mean,mean], y=[0,100], mode="lines+markers", marker_color="red", name="Media"))
