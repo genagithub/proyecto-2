@@ -37,16 +37,8 @@ predicts = linear_regression.predict(objects["tv"].values.reshape((-1,1)))
 app = dash.Dash(__name__)
 server = app.server
 
-# -------------------
-df_zscore = df.loc[:, "radio"]
-
-df_zscore["radio_zscore"] = zscore(df["radio"]).abs()
-
-outliers_radio = df_zscore.loc[df_zscore["radio_zscore"] > 3, "radio_zscore"].count()
-# -------------------
-
 app.layout = html.Div(id="body",className="e2_body",children=[
-    html.A(href="https://github.com/genagithub/proyecto-2/blob/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb",children=[html.H1(f"EDA y Modelado lineal sobre costos e ingresos {outliers_radio}",id="title",className="e2_title")]),
+    html.A(href="https://github.com/genagithub/proyecto-2/blob/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb",children=[html.H1("EDA y Modelado lineal sobre costos e ingresos",id="title",className="e2_title")]),
     html.Div(id="dashboard",className="e2_dashboard",children=[
         html.Div(id="column-1",className="e2_column_1",children=[
             dcc.Dropdown(id="dropdown",className="e2_dropdown",
