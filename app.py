@@ -77,7 +77,7 @@ def update_dash(slct_var):
     mean = df[slct_var].mean()
     median = df[slct_var].median()
     
-    var_title = "Campaña Publicitaria en TV ($)"
+    var_title = "Presupuesto en TV ($)"
     
     if slct_var == "sales":
         var_title = "Ventas Históricas ($)"
@@ -88,7 +88,7 @@ def update_dash(slct_var):
 
     scatter_radio = go.Figure()
     scatter_radio.add_trace(go.Scatter(x=df["radio"], y=df[slct_var], mode="markers", marker_color="blue"))
-    scatter_radio.update_layout(title=f"Correlación con el canal Radio: {round(corr,2)}", xaxis_title=var_title, yaxis_title="Campaña Publicitaria en Radio ($)")
+    scatter_radio.update_layout(title=f"Correlación con campañas de Radio: {round(corr,2)}", xaxis_title=var_title, yaxis_title="Presupuesto en Radio ($)")
     
     histplot = go.Figure(go.Histogram(x=df[slct_var], name="Distribución"))
     histplot.add_trace(go.Scatter(x=[mean,mean], y=[0,100], mode="lines+markers", marker_color="red", name="Media"))
