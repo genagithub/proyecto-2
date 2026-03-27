@@ -12,7 +12,7 @@ from scipy.stats import pearsonr, zscore, kurtosis, norm, kstest
 from sklearn.linear_model import LinearRegression
 
 
-df = pd.read_csv("data/advertising_and_sales.csv")
+df = pd.read_csv("advertising_and_sales.csv")
 df.set_index("id", inplace=True)
 
 corr, _ = pearsonr(df["radio"], df["sales"])
