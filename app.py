@@ -22,7 +22,7 @@ _, p_value_var_y = kstest(df["sales"].values, "norm")
 
 df["ROI"] = (df["sales"] - df["tv"]) / df["tv"]
 
-umbral_roi = df["ROI"].quantile(0.2)
+umbral_roi = df["ROI"].quantile(0.12)
 df_model = df[df["ROI"] >= umbral_roi].copy()
 
 var_x = df_model["tv"].values.reshape((-1,1))
