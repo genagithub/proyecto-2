@@ -15,7 +15,7 @@ from sklearn.linear_model import LinearRegression
 df = pd.read_csv("advertising_and_sales.csv")
 df.set_index("id", inplace=True)
 
-corr, _ = pearsonr(df["radio"], df["sales"])
+corr, _ = pearsonr(df["tv"], df["sales"])
 
 _, p_value_var_x = kstest(df["tv"].values, "norm")
 _, p_value_var_y = kstest(df["sales"].values, "norm")
