@@ -23,7 +23,7 @@ server = app.server
 app.layout = html.Div(id="body", className="e2_body", children=[
     html.A(href="https://github.com/genagithub/proyecto-2/edit/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb", children=[html.H1("Estrategia de Inversión: del volumen a la rentabilidad", className="e2_title")]),
     
-    html.Div(style={"display": "flex", "justify-content": "space-around", "padding": "20px"}, children=[
+    html.Div(style={"display":"flex","justify-content":"space-around","padding":"20px","margin-bottom":"15px"}, children=[
         html.Div([html.H3("Margen Neto Promedio:"), html.B(f"${round(mean_margin, 2)}",style={"font-weight":"bold","font-size":"1em"})], className="e2_stats"),
         html.Div([html.H3("Elasticidad TV (dominancia):"), html.B(f"{round(elasticities["TV"], 2)}",style={"font-weight":"bold","font-size":"1em"})], className="e2_stats"),
         html.Div([html.H3("Elasticidad Radio (oportunidad):"), html.B(f"{round(elasticities["Radio"], 2)}",style={"font-weight":"bold","font-size":"1em"})], className="e2_stats"),
@@ -32,12 +32,12 @@ app.layout = html.Div(id="body", className="e2_body", children=[
     html.Div(id="dashboard", className="e2_dashboard", children=[
         html.Div(className="e2_column_1", children=[
             html.Div(className="e2_div_graphs", children=[
-                dcc.Graph(id="graph-pie", className="e2_graphs"),
-                dcc.Graph(id="graph-bar", className="e2_graphs")
+                dcc.Graph(id="graph-pie", className="e2_graphs", figure={}),
+                dcc.Graph(id="graph-bar", className="e2_graphs", figure={})
         ]),
         
-        html.Div(style={"width":"65%","margin-top":"40px","border":"1px solid black"}, children=[
-               html.Label("Simulador de Rebalanceo: Mover presupuesto de TV a Radio (%)", style={"border":"1px solid red","color":"white","font-weight":"bold","margin-bottom": "10px", "display": "block"}),
+        html.Div(style={"width":"60%","margin-top":"40px"}, children=[
+               html.Label("Simulador de Rebalanceo: Mover presupuesto de TV a Radio (%)", style={"color":"black","font-weight":"bold","margin-bottom": "10px", "display": "block"}),
                dcc.Slider(
                    id="rebalance-slider", 
                    min=0, max=30, step=5, value=0, 
@@ -47,7 +47,7 @@ app.layout = html.Div(id="body", className="e2_body", children=[
         ]),
 
         html.Div(className="e2_column_2", children=[
-            dcc.Graph(id="graph-scatter"),
+            dcc.Graph(id="graph-scatter", figure={}),
             html.Div(id="text-resolution", style={"padding": "15px", "background-color": "#f9f9f9", "border-radius": "10px"})
         ])
     ])
