@@ -68,12 +68,13 @@ a {
     justify-content:center;
     align-items:center;
     height:80px;
+    margin-bottom: 35px;
 }
 .e2_stats {
     background-color: white;
     text-align:center;
     font-size:1.1em;
-    width: 280px;
+    width: 480px;
     height: 65px;
     font-family:"no-roboto", sans-serif;
     font-weight: 300px;
