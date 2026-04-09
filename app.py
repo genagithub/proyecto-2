@@ -21,7 +21,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 app.layout = html.Div(id="body", className="e2_body", children=[
-    html.A(href="https://github.com/genagithub/proyecto-2/edit/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb", children=[html.H1("Estrategia de Inversión: del volumen a la rentabilidad", className="e2_title")]),
+    html.A(href="https://github.com/genagithub/proyecto-2/blob/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb", children=[html.H1("Estrategia de Inversión: del volumen a la rentabilidad", className="e2_title")]),
     
     html.Div(className="e2_div_stats", children=[
         html.Div([html.H3("Margen Neto Promedio: "), html.B(f"${round(mean_margin, 2)}",style={"font-weight":"bold","font-size":"1.2em"})], className="e2_stats"),
