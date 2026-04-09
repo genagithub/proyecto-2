@@ -24,9 +24,9 @@ app.layout = html.Div(id="body", className="e2_body", children=[
     html.A(href="https://github.com/genagithub/proyecto-2/edit/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb", children=[html.H1("Estrategia de Inversión: del volumen a la rentabilidad", className="e2_title")]),
     
     html.Div(className="e2_div_stats", children=[
-        html.Div([html.H3("Margen Neto Promedio:"), html.B(f"${round(mean_margin, 2)}",style={"font-weight":"bold","font-size":"1em"})], className="e2_stats"),
-        html.Div([html.H3("Elasticidad TV (dominancia):"), html.B(f"{round(elasticities["TV"], 2)}",style={"font-weight":"bold","font-size":"1em"})], className="e2_stats"),
-        html.Div([html.H3("Elasticidad Radio (oportunidad):"), html.B(f"{round(elasticities["Radio"], 2)}",style={"font-weight":"bold","font-size":"1em"})], className="e2_stats"),
+        html.Div([html.H3("Margen Neto Promedio: "), html.B(f"${round(mean_margin, 2)}",style={"font-weight":"bold","font-size":"1.2em"})], className="e2_stats"),
+        html.Div([html.H3("Elasticidad TV (dominancia): "), html.B(f"{round(elasticities["TV"], 2)}",style={"font-weight":"bold","font-size":"1.2em"})], className="e2_stats"),
+        html.Div([html.H3("Elasticidad Radio (oportunidad): "), html.B(f"{round(elasticities["Radio"], 2)}",style={"font-weight":"bold","font-size":"1.2em"})], className="e2_stats"),
     ]),
 
     html.Div(id="dashboard", className="e2_dashboard", children=[
