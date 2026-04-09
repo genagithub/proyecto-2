@@ -76,21 +76,18 @@ def update_dash(slct_var):
     mean = df[slct_var].mean()
     median = df[slct_var].median()
 
-    vars = {
-        "tv":["Presupuesto en TV ($)", 250],
-        "sales":["Ventas Históricas ($)", 200]
-    }
+    vars = {"tv":"Presupuesto en TV ($)", "sales":"Ventas Históricas ($)"}
 
     corr, _ = pearsonr(df["radio"], df[slct_var])
 
     scatter_radio = go.Figure()
     scatter_radio.add_trace(go.Scatter(x=df["radio"], y=df[slct_var], mode="markers", marker_color="blue"))
-    scatter_radio.update_layout(title=f"Correlación con campañas de Radio: {round(corr,2)}", xaxis_title="Presupuesto en Radio ($)", yaxis_title=vars[slct_var][0])
+    scatter_radio.update_layout(title=f"Correlación con campañas de Radio: {round(corr,2)}", xaxis_title="Presupuesto en Radio ($)", yaxis_title=vars[slct_var])
     
     histplot = go.Figure(go.Histogram(x=df[slct_var], name="Distribución"))
-    histplot.add_trace(go.Scatter(x=[mean,mean], y=[0,vars[slct_var][1]], mode="lines+markers", marker_color="red", name="Media"))
-    histplot.add_trace(go.Scatter(x=[median,median], y=[0,vars[slct_var][1]], mode="lines+markers", marker_color="green", name="Mediana"))
-    histplot.update_layout(title="Histograma", xaxis_title=vars[slct_var][0], yaxis_title=" ")
+    histplot.add_vline(x=mean, line_dash="dash", line_color="red", annotation_text="Media")
+    histplot.add_vline(x=median, line_dash="dot", line_color="green", annotation_text="Mediana")
+    histplot.update_layout(title="Histograma", xaxis_title=vars[slct_var], yaxis_title=" ")
     
     linear_regression = go.Figure()
     linear_regression.add_trace(go.Scatter(x=df["tv"], y=df["sales"], mode="markers", marker_color="blue", name="Ventas históricas"))
