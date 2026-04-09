@@ -83,12 +83,12 @@ a {
     text-align:center;
     font-size:1.25em;
     width: 250px;
-    height: 45px;
+    height: 75px;
     font-family:"no-roboto", sans-serif;
     box-shadow:4px 4px 15px 0 black;
     margin: 0 10px;
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     padding: 5px 45px
