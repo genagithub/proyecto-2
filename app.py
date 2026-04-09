@@ -54,11 +54,11 @@ app.layout = html.Div(id="body", className="e2_body", children=[
 ])
 
 @app.callback(
-    [Output("graph-pie", "figure"),
-     Output("graph-bar", "figure"),
-     Output("graph-scatter", "figure"),
-     Output("text-resolution", "children")],
-    [Input("rebalance-slider", "value")]
+    [Output(component_id="graph-pie",component_property="figure"),
+     Output(component_id="graph-bar",component_property="figure"),
+     Output(component_id="graph-scatter",component_property="figure"),
+     Output(component_id="text-resolution",component_property="children")],
+    [Input(component_id="rebalance-slider",component_property="value")]
 )
 
 def update_strategy(rebalance_pct):
