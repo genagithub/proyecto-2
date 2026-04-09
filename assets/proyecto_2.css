@@ -72,16 +72,16 @@ a {
 .e2_stats {
     background-color: white;
     text-align:center;
-    font-size:1.15em;
-    width: 250px;
-    height: 75px;
+    font-size:1.1em;
+    width: 280px;
+    height: 65px;
     font-family:"no-roboto", sans-serif;
     font-weight: 300px;
     box-shadow:4px 4px 15px 0 black;
-    margin: 0 10px;
+    margin: 0 12px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding: 5px 45px
+    padding: 0
 }
