@@ -25,8 +25,8 @@ mean_margin = df["sales"].mean() - (df["tv"].mean() + df["radio"].mean() + df["s
 app = dash.Dash(__name__)
 server = app.server
 
-app.layout = html.Div(id="body",className="e2_body", children=[
-    html.H1("Estrategia de Inversión: Del Volumen a la Rentabilidad", id="title"),
+app.layout = html.Div(id="body", className="e2_body", children=[
+    html.A(href="https://github.com/genagithub/proyecto-2/edit/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb", children=[html.H1("Estrategia de Inversión: Del Volumen a la Rentabilidad", className="e2_title")]),
     
     # KPIs Superiores
     html.Div(style={"display": "flex", "justifyContent": "space-around", "padding": "20px"}, children=[
@@ -49,7 +49,7 @@ app.layout = html.Div(id="body",className="e2_body", children=[
         # Columna de Resultados de Negocio
         html.Div(className="e2_column_2", children=[
             dcc.Graph(id="graph-scatter"),
-            html.Div(id="text-resolution", style={'padding': '15px', 'backgroundColor': '#f9f9f9', 'borderRadius': '10px'})
+            html.Div(id="text-resolution", style={"padding": "15px", "backgroundColor": "#f9f9f9", "borderRadius": "10px"})
         ])
     ])
 ])
