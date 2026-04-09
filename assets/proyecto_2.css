@@ -35,7 +35,7 @@ a {
     font-family:"no-roboto", sans-serif;
     font-weight: 300px;
     box-shadow:4px 4px 15px 0 black;
-    margin: 0 20px;
+    margin: 0 25px;
     display:flex;
     flex-direction:row;
     justify-content:center;
