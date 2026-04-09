@@ -56,10 +56,6 @@ a {
     padding: 50px 0px;
     margin: 0;
 }
-.e2_dropdown  {
-    width: 240px;
-    margin-bottom: 25px
-}
 .e2_graph_3  {
     width: 650px;
     height: 435px;
@@ -73,18 +69,14 @@ a {
     align-items:center;
     height:80px;
 }
-.e2_p_values_title{
-    color: white;
-    text-align:center;
-    font-family:"no-roboto", sans-serif;    
-}
 .e2_stats {
     background-color: white;
     text-align:center;
-    font-size:1.25em;
+    font-size:1.15em;
     width: 250px;
     height: 75px;
     font-family:"no-roboto", sans-serif;
+    font-weight: 300px;
     box-shadow:4px 4px 15px 0 black;
     margin: 0 10px;
     display:flex;
@@ -92,19 +84,4 @@ a {
     justify-content:center;
     align-items:center;
     padding: 5px 45px
-}
-.e2_corr {
-    background-color: white;
-    text-align: center;
-    font-size: 1.25em;
-    font-family:"no-roboto", sans-serif;
-    height: 40px;
-    width: 350px;
-    box-shadow: 4px 4px 15px 0 black;
-    margin: 5px 0 15px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 150px
 }
