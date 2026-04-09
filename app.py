@@ -60,6 +60,7 @@ app.layout = html.Div(id="body", className="e2_body", children=[
      Output("text-resolution", "children")],
     [Input("rebalance-slider", "value")]
 )
+
 def update_strategy(rebalance_pct):
     cost_tv_orig = df["tv"].mean()
     money_change = cost_tv_orig * (rebalance_pct / 100)
