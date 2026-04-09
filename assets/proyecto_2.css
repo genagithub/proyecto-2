@@ -10,7 +10,7 @@ a {
   text-decoration: none;
   margin-bottom: 50px;
 }
-.e2_title  {
+.e2_title {
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000, 1px  1px 0 #000;
     text-align:center;
@@ -82,13 +82,13 @@ a {
     background-color: white;
     text-align:center;
     font-size:1.25em;
-    width: 220px;
-    height: 40px;
+    width: 225px;
+    height: 50px;
     font-family:"no-roboto", sans-serif;
     box-shadow:4px 4px 15px 0 black;
     margin: 0 10px;
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     padding: 5px 45px
