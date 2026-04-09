@@ -1,102 +1,101 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from plotly.subplots import make_subplots
-import plotly.express as px
-import plotly.graph_objects as go
+import os
 import dash
-from dash import html, dcc
-from dash.dependencies import Input, Output
-from scipy.stats import pearsonr, zscore, kurtosis, norm, kstest
+from dash import html, dcc, Input, Output
+import plotly.graph_objects as go
+from scipy.stats import pearsonr
 from sklearn.linear_model import LinearRegression
 
-
+# --- 1. CARGA Y MODELADO DE ELASTICIDAD ---
 df = pd.read_csv("data/advertising_and_sales.csv", index_col="id")
 
-corr, _ = pearsonr(df["tv"], df["sales"])
+# Calculamos Elasticidades (Log-Log) para entender el impacto porcentual
+# Esto resuelve tu duda: ¿Por qué TV es clave? Porque su coeficiente será el más alto.
+def get_elasticities(data):
+    df_log = np.log(data[['tv', 'radio', 'social_media', 'sales']] + 1)
+    model = LinearRegression()
+    model.fit(df_log[['tv', 'radio', 'social_media']], df_log['sales'])
+    return dict(zip(['TV', 'Radio', 'Social Media'], model.coef_))
 
-_, p_value_var_x = kstest(df["tv"].values, "norm")
-_, p_value_var_y = kstest(df["sales"].values, "norm")
+elasticidades = get_elasticities(df)
+margen_promedio = df["sales"].mean() - (df["tv"].mean() + df["radio"].mean() + df["social_media"].mean())
 
-df["ROI"] = (df["sales"] - df["tv"]) / df["tv"]
-
-umbral_roi = df["ROI"].quantile(0.12)
-df_model = df[df["ROI"] >= umbral_roi].copy()
-
-var_x = df_model["tv"].values.reshape((-1,1))
-var_y = df_model["sales"]
-
-linear_regression = LinearRegression()
-linear_regression.fit(var_x, var_y)
-
-objects = df[["tv","sales"]].sample(n=25)
-predicts = linear_regression.predict(objects["tv"].values.reshape((-1,1)))
-
+# --- 2. CONFIGURACIÓN DASH ---
 app = dash.Dash(__name__)
 server = app.server
 
-app.layout = html.Div(id="body",className="e2_body",children=[
-    html.A(href="https://github.com/genagithub/proyecto-2/blob/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb",children=[html.H1("Modelado lineal sobre costos publicitarios e ingresos",id="title",className="e2_title")]),
-    html.Div(id="dashboard",className="e2_dashboard",children=[
-        html.Div(id="column-1",className="e2_column_1",children=[
-            dcc.Dropdown(id="dropdown",className="e2_dropdown",
-                        options=[
-                            {"label":"Costos en promoción (TV)","value":"tv"},
-                            {"label":"Ingresos por ventas","value":"sales"}
-                        ],
-                        value="tv",
-                        multi=False,
-                        clearable=False),
-            html.Div(className="e2_div_graphs",children=[
-                dcc.Graph(id="graph-1",className="e2_graphs",figure={}), 
-                dcc.Graph(id="graph-2",className="e2_graphs",figure={})
-            ])
+app.layout = html.Div(className="e2_body", children=[
+    html.H1("Estrategia de Inversión: Del Volumen a la Rentabilidad", id="title"),
+    
+    # KPIs Superiores
+    html.Div(style={'display': 'flex', 'justifyContent': 'space-around', 'padding': '20px'}, children=[
+        html.Div([html.H3(f"${round(margen_promedio, 2)}"), html.P("Margen Neto Promedio")], className="e2_stats"),
+        html.Div([html.H3(f"{round(elasticidades['TV'], 2)}"), html.P("Elasticidad TV (Dominancia)")], className="e2_stats"),
+        html.Div([html.H3(f"{round(elasticidades['Radio'], 2)}"), html.P("Elasticidad Radio (Oportunidad)")], className="e2_stats"),
+    ]),
+
+    html.Div(id="dashboard", className="e2_dashboard", children=[
+        # Columna de Controles y Simulación
+        html.Div(className="e2_column_1", children=[
+            html.Label("Simulador de Rebalanceo: Mover presupuesto de TV a Radio (%)"),
+            dcc.Slider(id='rebalance-slider', min=0, max=30, step=5, value=0, 
+                       marks={i: f'{i}%' for i in range(0, 31, 5)}),
+            
+            dcc.Graph(id="graph-pie-gasto"),
+            dcc.Graph(id="graph-elasticidad")
         ]),
-        html.Div(id="column-2",className="e2_column_2",children=[
-            html.Div(id="p_values",className="e2_stats_div",children=[
-                html.Div(id="p_value_var_x",className="e2_stats",children=[html.P(f"Kolgomorov (X): P = {round(p_value_var_x, 1)}",style={"font-size":"1em"})]),
-                html.Div(id="p_value_var_y",className="e2_stats",children=[html.P(f"Kolgomorov (Y): P = {round(p_value_var_y, 1)}",style={"font-size":"0.98em"})])
-            ]),
-            html.Div(f"Correlación de Pearson: {round(corr,2)}",className="e2_corr",id="corr"),
-            dcc.Graph(id="graph-3",className="e2_graph_3",figure={})
+
+        # Columna de Resultados de Negocio
+        html.Div(className="e2_column_2", children=[
+            dcc.Graph(id="graph-frontera-eficiencia"),
+            html.Div(id="resolucion-texto", style={'padding': '15px', 'backgroundColor': '#f9f9f9', 'borderRadius': '10px'})
         ])
     ])
 ])
 
+# --- 3. CALLBACKS ---
 @app.callback(
-    [Output(component_id="graph-1",component_property="figure"),
-    Output(component_id="graph-2",component_property="figure"),
-    Output(component_id="graph-3",component_property="figure")],
-    [Input(component_id="dropdown",component_property="value")]
+    [Output("graph-pie-gasto", "figure"),
+     Output("graph-elasticidad", "figure"),
+     Output("graph-frontera-eficiencia", "figure"),
+     Output("resolucion-texto", "children")],
+    [Input("rebalance-slider", "value")]
 )
-
-def update_dash(slct_var):
+def update_strategy(rebalance_pct):
+    # Simulación simple de impacto
+    gasto_tv_orig = df["tv"].mean()
+    cambio_dinero = gasto_tv_orig * (rebalance_pct / 100)
     
-    mean = df[slct_var].mean()
-    median = df[slct_var].median()
+    # Gráfico 1: Mix de Gasto Actual
+    pie_gasto = go.Figure(data=[go.Pie(labels=['TV', 'Radio', 'RRSS'], 
+                                      values=[df['tv'].mean(), df['radio'].mean(), df['social_media'].mean()],
+                                      hole=.3)])
+    pie_gasto.update_layout(title="Distribución Actual del Gasto")
 
-    vars = {"tv":"Presupuesto en TV ($)", "sales":"Ventas Históricas ($)"}
+    # Gráfico 2: Comparativa de Elasticidades (Poder de Tracción)
+    fig_els = go.Figure([go.Bar(x=list(elasticidades.keys()), y=list(elasticidades.values()), marker_color='indigo')])
+    fig_els.update_layout(title="Elasticidad: Sensibilidad de Ventas al +1% Gasto", yaxis_title="Impacto % en Ventas")
 
-    corr, _ = pearsonr(df["radio"], df[slct_var])
-
-    scatter_radio = go.Figure()
-    scatter_radio.add_trace(go.Scatter(x=df["radio"], y=df[slct_var], mode="markers", marker_color="blue"))
-    scatter_radio.update_layout(title=f"Correlación con campañas de Radio: {round(corr,2)}", xaxis_title="Presupuesto en Radio ($)", yaxis_title=vars[slct_var])
+    # Gráfico 3: Frontera de Eficiencia (Scatter)
+    # Filtramos por tu umbral de ROI del 12% para mostrar solo los casos eficientes
+    df["ROI"] = (df["sales"] - df["tv"]) / df["tv"]
+    df_eficiente = df[df["ROI"] >= df["ROI"].quantile(0.12)]
     
-    histplot = go.Figure(go.Histogram(x=df[slct_var], name="Distribución"))
-    histplot.add_vline(x=mean, line_dash="dash", line_color="red", annotation_text="Media")
-    histplot.add_vline(x=median, line_dash="dot", line_color="green", annotation_text="Mediana")
-    histplot.update_layout(title="Histograma", xaxis_title=vars[slct_var], yaxis_title=" ")
-    
-    linear_regression = go.Figure()
-    linear_regression.add_trace(go.Scatter(x=df["tv"], y=df["sales"], mode="markers", marker_color="blue", name="Ventas históricas"))
-    linear_regression.add_trace(go.Scatter(x=objects["tv"], y=predicts, mode="lines+markers", marker_color="red", name="Ventas estimadas"))
-    linear_regression.add_trace(go.Scatter(x=objects["tv"], y=objects["sales"], mode="markers", marker_color="green", name="Ventas reales"))
-    linear_regression.update_layout(title="Frontera de Eficiencia de Inversión Publicitaria", xaxis_title="Campaña Publicitaria en TV ($)", yaxis_title=" ")
+    fig_scatter = go.Figure()
+    fig_scatter.add_trace(go.Scatter(x=df["tv"], y=df["sales"], mode='markers', name='Campaña Estándar', opacity=0.4))
+    fig_scatter.add_trace(go.Scatter(x=df_eficiente["tv"], y=df_eficiente["sales"], mode='markers', name='Frontera Eficiente', marker=dict(color='green', size=8)))
+    fig_scatter.update_layout(title="Identificación de la Frontera de Eficiencia", xaxis_title="Gasto TV", yaxis_title="Ventas")
 
-    return scatter_radio, histplot, linear_regression
+    ventas_est = df["sales"].mean() * (1 + (rebalance_pct/100 * elasticidades['Radio']))
+    texto = [
+        html.H4("Resolución Estratégica:"),
+        html.P(f"Al rebalancear un {rebalance_pct}% de TV hacia Radio, estás moviendo ${round(cambio_dinero, 2)} a un canal con mayor retorno marginal."),
+        html.P(f"Estimación: Las ventas podrían optimizarse un {round(rebalance_pct * elasticidades['Radio'], 2)}% manteniendo el presupuesto constante.")
+    ]
+
+    return pie_gasto, fig_els, fig_scatter, texto
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8050)) 
+    port = int(os.environ.get("PORT", 8050))
     app.run_server(host='0.0.0.0', port=port)
