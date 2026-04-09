@@ -48,7 +48,7 @@ app.layout = html.Div(id="body", className="e2_body", children=[
 
         html.Div(className="e2_column_2", children=[
             dcc.Graph(id="graph-scatter", figure={}),
-            html.Div(id="text-resolution", classsName="e2_text_resolution")
+            html.Div(id="text-resolution", className="e2_text_resolution")
         ])
     ])
 ])
