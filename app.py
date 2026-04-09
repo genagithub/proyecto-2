@@ -24,9 +24,9 @@ app.layout = html.Div(id="body", className="e2_body", children=[
     html.A(href="https://github.com/genagithub/proyecto-2/edit/main/optimizaci%C3%B3n_de_inversi%C3%B3n_publicitaria.ipynb", children=[html.H1("Estrategia de Inversión: del volumen a la rentabilidad", className="e2_title")]),
     
     html.Div(style={"display": "flex", "justifyContent": "space-around", "padding": "20px"}, children=[
-        html.Div([html.H3(f"${round(mean_margin, 2)}"), html.P("Margen Neto Promedio")], className="e2_stats"),
-        html.Div([html.H3(f"{round(elasticities["TV"], 2)}"), html.P("Elasticidad TV (Dominancia)")], className="e2_stats"),
-        html.Div([html.H3(f"{round(elasticities["Radio"], 2)}"), html.P("Elasticidad Radio (Oportunidad)")], className="e2_stats"),
+        html.Div([html.H3("Margen Neto Promedio:"), html.P(f"${round(mean_margin, 2)}")], className="e2_stats"),
+        html.Div([html.H3("Elasticidad TV (dominancia):"), html.P(f"{round(elasticities["TV"], 2)}")], className="e2_stats"),
+        html.Div([html.H3("Elasticidad Radio (oportunidad):"), html.P(f"{round(elasticities["Radio"], 2)}")], className="e2_stats"),
     ]),
 
     html.Div(id="dashboard", className="e2_dashboard", children=[
