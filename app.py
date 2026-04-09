@@ -66,8 +66,7 @@ def update_strategy(rebalance_pct):
     money_change = cost_tv_orig * (rebalance_pct / 100)
     
     piechart = go.Figure(data=[go.Pie(labels=["TV", "Radio", "RRSS"], 
-                                      values=[df["tv"].mean(), df["radio"].mean(), df["social_media"].mean()],
-                                      hole=.3)])
+                                      values=[df["tv"].mean(), df["radio"].mean(), df["social_media"].mean()])])
     piechart.update_layout(title="Distribución Actual del Gasto")
 
     barchart = go.Figure([go.Bar(x=list(elasticities.keys()), y=list(elasticities.values()), marker_color="indigo")])
