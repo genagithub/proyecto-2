@@ -70,6 +70,12 @@ a {
     width:50%;
     margin-top:40px
 }
+.e2_label{
+    color:black;
+    font-weight:bold;
+    margin-bottom:10px;
+    display: block;
+}
 .e2_graphs{
     width: 90%;
 }
