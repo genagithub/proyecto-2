@@ -34,15 +34,14 @@ app.layout = html.Div(id="body", className="e2_body", children=[
             html.Div(className="e2_div_graphs", children=[
                 dcc.Graph(id="graph-pie", className="e2_graphs", figure={}),
                 dcc.Graph(id="graph-bar", className="e2_graphs", figure={})
-        ]),
+            ]),
         
-        html.Div(className="e2_div_slider", children=[
-               html.Label("Simulador de Rebalanceo: Mover presupuesto de TV a Radio (%)", className="e2_label"),
-               dcc.Slider(
-                   id="rebalance-slider", 
+            html.Div(className="e2_div_slider", children=[
+                html.Label("Simulador de Rebalanceo: Mover presupuesto de TV a Radio (%)", className="e2_label"),
+                dcc.Slider(id="rebalance-slider", 
                    min=0, max=30, step=5, value=0, 
                    marks={i: {"label": f"{i}%", "style": {"color": "white"}} for i in range(0, 31, 5)}
-               ),
+                )
             ])
         ]),
 
