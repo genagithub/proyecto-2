@@ -23,7 +23,7 @@ En lugar de entrenar una regresión lineal tradicional que promedie el desempeñ
 
 #### 🚀 El Data Product: Simulador Estratégico
 El resultado final es un Dashboard Interactivo para el equipo de Marketing y Finanzas. La herramienta permite:
-- Mover palancas de presupuesto para TV, Radio y Redes Sociales.
+- Mover palancas de presupuesto para TV, Radio especificamente.
 - Visualizar de inmediato la estimación de ingresos optimizada bajo la frontera de eficiencia.
 - Rebalancear el mix de medios de forma segura antes de ejecutar la inversión real.
 
