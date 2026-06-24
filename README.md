@@ -22,12 +22,12 @@ En lugar de entrenar una regresión lineal tradicional que promedie el desempeñ
 ---
 
 #### 🚀 El Data Product: Simulador Estratégico
-El resultado final es un Dashboard Interactivo para el equipo de Marketing y Finanzas. La herramienta permite:
-- Mover palancas de presupuesto para TV, Radio especificamente.
-- Visualizar de inmediato la estimación de ingresos optimizada bajo la frontera de eficiencia.
-- Rebalancear el mix de medios de forma segura antes de ejecutar la inversión real.
+El resultado final es una plataforma analítica interactiva diseñada para la asignación eficiente de recursos, transformando los datos históricos de pauta publicitaria en un entorno seguro de simulación financiera que opera bajo tres capacidades clave:
+- **Auditoría de Inversión:** Analiza de forma previa la distribución actual de los canales, midiendo con precisión su proporción en los costos totales para detectar oportunidades de retorno marginal desaprovechadas.
+- **Simulación de Presupuesto:** Permite mover palancas de inversión de forma específica para los canales TV y Radio específicamente, evaluando diferentes escenarios de distribución.
+- **Rebalanceo Seguro del Mix de Medios:** Faculta al equipo a redistribuir el presupuesto estratégico bajo la frontera de eficiencia, visualizando el impacto en los ingresos antes de ejecutar la inversión real en el mercado.
 
 ---
 
-### 🎯 Recomendación Estratégica
+#### 🎯 Recomendación Estratégica
 No se debe aumentar el presupuesto total de marketing. La solución consiste **en quitar una fracción de la inversión estancada en TV y redirigirla de forma estratégica hacia la Radio y canales digitales** para maximizar el margen neto y acelerar la velocidad del retorno.
