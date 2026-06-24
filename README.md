@@ -13,7 +13,7 @@ El Análisis Exploratorio de Datos (EDA) y el estudio de la frontera de eficienc
 
 ---
 
-#### 🛠️ La Solución Técnica (Simulador de Retorno de Inversión)
+#### 🛠️ Enfoque Técnico y Modelado
 En lugar de entrenar una regresión lineal tradicional que promedie el desempeño general (lo cual arrastraría los errores del gasto ineficiente), se aplicó un enfoque avanzado:
 - **Filtrado por Frontera de Eficiencia:** Se aisló el cuantil superior (top 12%) de los datos históricos con mejor rendimiento de ROI.
 - **Regresión Lineal Segmentada:** El algoritmo se entrenó exclusivamente sobre estos escenarios ideales para aprender a replicar los éxitos de negocio del pasado.
