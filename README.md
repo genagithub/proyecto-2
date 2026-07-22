@@ -1,6 +1,6 @@
 ### 📉 Optimización de Presupuesto Publicitario (Marketing Mix Modeling)
 
-#### 🎯 El Problema de Negocio
+#### 🎯 El Contexto del Problema 
 Los sectores de marketing y finanzas invierten grandes sumas de dinero en publicidad en múltiples canales (TV, Radio y Social Media) sin saber con certeza si cada dólar invertido está generando el máximo retorno posible. El objetivo es descubrir si existe una redistribución óptima del presupuesto que maximice las ventas sin aumentar el gasto total.
 
 --- 
