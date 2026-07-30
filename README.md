@@ -14,9 +14,9 @@ El Análisis Exploratorio de Datos (EDA) y el estudio de la frontera de eficienc
 ---
 
 #### 🛠️ Enfoque Técnico y Modelado
-En lugar de entrenar una regresión lineal tradicional que promedie el desempeño general (lo cual arrastraría los errores del gasto ineficiente), se aplicó un enfoque avanzado:
-- **Filtrado por Frontera de Eficiencia:** Se aisló el cuantil superior (top 12%) de los datos históricos con mejor rendimiento de ROI.
-- **Regresión Lineal Segmentada:** El algoritmo se entrenó exclusivamente sobre estos escenarios ideales para aprender a replicar los éxitos de negocio del pasado.
+Previo a implementar cualquier rebalanceo de presupuesto, se probó la precisión en un modelado lineal basado en costos (X) e ingresos (Y) .En lugar de entrenar una regresión lineal tradicional que promedie el desempeño general (lo cual arrastraría los errores del gasto ineficiente), se aplicó un enfoque avanzado:
+- **Filtrado por Frontera de Eficiencia:** Se aisló el cuantil superior (top 12%) de los datos históricos en base a su ROI, para aprender a replicar los éxitos de negocio del pasado.
+- **Regresión Lineal Segmentada:** El algoritmo se entrenó exclusivamente sobre estos escenarios ideales y de forma específica para la variable TV, considerándola como la mayor asociada linealmente con la variables de ventas (sales). 
 - **Validación de Supuestos:** Se realizaron pruebas estadísticas rigurosas para asegurar la normalidad en los residuos, control de outliers y correlación de variables, garantizando que el modelo es estadísticamente confiable.
 
 ---
