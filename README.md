@@ -30,4 +30,6 @@ El resultado final es una herramienta interactiva diseñada para la asignación 
 ---
 
 #### 🎯 Recomendación Estratégica
-No se debe aumentar el presupuesto total de marketing. La solución consiste **en quitar una fracción de la inversión estancada en TV y redirigirla de forma estratégica hacia la Radio y canales digitales** para maximizar el margen neto y acelerar la velocidad del retorno.
+Tras el análisis y modelado del rendimiento actual de los canales de difusión, se determina que **no es viable ni necesario incrementar el presupuesto global asignado al departamento de marketing**. En su lugar, la estrategia óptima requiere una reingeniería de la cartera de inversión publicitaria. 
+
+Se propone optimizar el capital existente mediante la desinversión parcial en medios tradicionales de televisión —cuyo rendimiento ha entrado en una fase de estancamiento— y **ejecutar una reasignación táctica de esos recursos principalmente hacia la Radio**. Esta diversificación inteligente no solo maximizará el margen neto por campaña, sino que también acelerará el retorno de inversión (ROI), dinamizando el flujo de caja operativo.
