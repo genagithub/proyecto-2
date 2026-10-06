@@ -5,19 +5,19 @@ Los sectores de marketing y finanzas invierten grandes sumas de dinero en public
 
 --- 
 
-#### 💡 Hallazgos Clave de la Investigación (Frontera de Eficiencia)
-El Análisis Exploratorio de Datos (EDA) y el estudio de la frontera de eficiencia revelaron ineficiencias críticas en la estrategia actual:
-- **Rendimientos Volátiles en TV:** La televisión garantiza un gran volumen de masa de clientes, pero el gasto actual superó el punto de equilibrio óptimo. Invertir más dinero en TV ya no genera más la misma seguridad.
-- **Gasto Ineficiente:** El análisis histórico demostró que se lograron niveles de ingresos idénticos usando presupuestos significativamente menores. La empresa está gastando de más.
-- **El Potencial Oculto:** La Radio (~15% de retorno) y los canales de Social Media presentan un costo marginal mucho menor y una mayor agilidad de retorno por cada dólar invertido.
+#### 💡 Hallazgos Clave (Frontera de Eficiencia)
+El Análisis Exploratorio de Datos y el estudio de la frontera de eficiencia revelaron una estructura estable pero también ineficiencias críticas en la estrategia actual:
+- **Rendimientos Volátiles en TV:** El canal de Televisión garantiza un gran volumen de masa de clientes, pero el gasto actual superó el punto de equilibrio óptimo, es decir, invertir más dinero en TV ya no genera más la misma seguridad.
+- **Gasto Ineficiente:** El análisis histórico demostró que se lograron niveles de ingresos idénticos usando presupuestos significativamente menores, lo que lleva al siguiente insight: la empresa está gastando de más.
+- **El Potencial Oculto:** El canal de Radio (~15% de retorno) y los canales de Social Media presentan un costo marginal mucho menor y una mayor agilidad de retorno por cada dólar invertido.
 
 ---
 
 #### 🛠️ Enfoque Técnico y Modelado
-Previo a implementar cualquier rebalanceo de presupuesto, se probó la precisión en un modelado lineal basado en costos (X) e ingresos (Y) .En lugar de entrenar una regresión lineal tradicional que promedie el desempeño general (lo cual arrastraría los errores del gasto ineficiente), se aplicó un enfoque avanzado:
+Previo a implementar cualquier rebalanceo de presupuesto, se probó la precisión en un modelado lineal basado en costos (X) e ingresos (Y). En lugar de entrenar una regresión lineal tradicional que promedie el desempeño general (lo cual arrastraría los errores del gasto ineficiente), se aplicó un enfoque avanzado:
 - **Filtrado por Frontera de Eficiencia:** Se aisló el cuantil superior (top 12%) de los datos históricos en base a su ROI, para aprender a replicar los éxitos de negocio del pasado utilizando este umbral.
 - **Regresión Lineal Segmentada:** El algoritmo se entrenó exclusivamente sobre estos escenarios ideales y de forma específica para la variable TV, considerándola como la mayor asociada linealmente con la variables de ventas (sales). 
-- **Validación de Supuestos:** Se realizaron pruebas estadísticas rigurosas para asegurar la normalidad en los residuos, control de outliers y correlación de variables, garantizando que el modelo es estadísticamente confiable.
+- **Validación de Supuestos de Gauss-Markov:** Se realizaron pruebas estadísticas rigurosas para asegurar la normalidad en los residuos, control de outliers y correlación de variables, garantizando que el modelo es estadísticamente confiable.
 
 ---
 
