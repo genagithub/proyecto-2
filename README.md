@@ -21,7 +21,7 @@ Previo a implementar cualquier rebalanceo de presupuesto, se probó la precisió
 
 ---
 
-#### 🚀 Solución Analítica: Simulador Estratégico
+#### 🚀 Solución Analítica: Simulador Estratégico de Rebalanceo
 El resultado final es una herramienta interactiva diseñada para la asignación eficiente de recursos, transformando los datos históricos de pauta publicitaria en un entorno seguro de simulación financiera que opera bajo tres capacidades clave:
 - **Auditoría de Inversión:** Analiza de forma previa la distribución actual de los canales, midiendo con precisión su proporción en los costos totales para detectar oportunidades de retorno marginal desaprovechadas.
 - **Simulación de Presupuesto:** Permite mover palancas de inversión de forma específica para los canales TV y Radio específicamente, evaluando diferentes escenarios de distribución.
