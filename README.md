@@ -1,11 +1,11 @@
 ### 📉 Optimización de Presupuesto Publicitario (Marketing Mix Modeling)
 
-#### 🎯 El Contexto del Problema 
+#### 🎯 Contexto del Problema de Negocio 
 Los sectores de marketing y finanzas invierten grandes sumas de dinero en publicidad en múltiples canales (TV, Radio y Social Media) sin saber con certeza si cada dólar invertido está generando el máximo retorno posible, históricamente la empresa opera bajo una distribución jerárquica (tradicional), donde el canal de TV absorbe la gran mayoría del presupuesto por una amplia diferencia sin considerar su elasticidad respecto a las ventas. El objetivo es mediante un histórico de campañas integradas en los últimos 5 años descubrir si existe, y en este último caso, automatizar una redistribución óptima del presupuesto que maximice las ventas sin aumentar el gasto total.
 
 --- 
 
-#### 💡 Hallazgos Clave (Frontera de Eficiencia)
+#### 💡 Hallazgos Clave de la Investigación (Frontera de Eficiencia)
 El Análisis Exploratorio de Datos y el estudio de la frontera de eficiencia revelaron una estructura estable pero también ineficiencias críticas en la estrategia actual:
 - **Rendimientos Volátiles en TV:** El canal de Televisión garantiza un gran volumen de masa de clientes, pero el gasto actual superó el punto de equilibrio óptimo, es decir, invertir más dinero en TV ya no genera más la misma seguridad.
 - **Gasto Ineficiente:** El análisis histórico demostró que se lograron niveles de ingresos idénticos usando presupuestos significativamente menores, lo que lleva al siguiente insight: la empresa está gastando de más.
@@ -29,7 +29,5 @@ El resultado final es una herramienta interactiva diseñada para la asignación 
 
 ---
 
-#### 🎯 Recomendación Estratégica
-Tras el análisis y modelado del rendimiento actual de los canales de difusión, se determina que **no es viable ni necesario incrementar el presupuesto global asignado al departamento de marketing**. En su lugar, la estrategia óptima requiere una reingeniería de la cartera de inversión publicitaria. 
-
-Se propone optimizar el capital existente mediante la desinversión parcial en medios tradicionales de televisión —cuyo rendimiento ha entrado en una fase de estancamiento— y **ejecutar una reasignación táctica de esos recursos principalmente hacia la Radio**. Esta diversificación inteligente no solo maximizará el margen neto por campaña, sino que también acelerará el retorno de inversión (ROI), dinamizando el flujo de caja operativo.
+#### 🎯 Propósito: Impacto Directo
+**Reingeniería de la cartera de inversión:** Propone optimizar el capital existente mediante la desinversión parcial en medios tradicionales de televisión —cuyo rendimiento ha entrado en una fase de estancamiento— y ejecutar una reasignación táctica de esos recursos principalmente hacia la Radio. Esta diversificación inteligente no solo maximizará el margen neto por campaña, sino que también acelerará el retorno de inversión (ROI), dinamizando el flujo de caja operativo.
