@@ -8,13 +8,11 @@ from sklearn.linear_model import LinearRegression
 
 df = pd.read_csv("data/advertising_and_sales.csv", index_col="id")
 
-def get_elasticities(data):
-    df_log = np.log(data[["tv", "radio", "social_media", "sales"]] + 1)
-    model = LinearRegression()
-    model.fit(df_log[["tv", "radio", "social_media"]], df_log["sales"])
-    return dict(zip(["TV", "Radio", "Social Media"], model.coef_))
+def get_elasticities():
+    elasticity_advertising_roi = joblib.load("model/elasticity_advertising_roi.pkl")
+    return dict(zip(["TV", "Radio", "Social Media"], elasticity_advertising_roi.coef_))
 
-elasticities = get_elasticities(df)
+elasticities = get_elasticities()
 mean_margin = df["sales"].mean() - (df["tv"].mean() + df["radio"].mean() + df["social_media"].mean())
 
 app = dash.Dash(__name__)
