@@ -4,6 +4,7 @@ import dash
 from dash import html, dcc, Input, Output
 import plotly.graph_objects as go
 from scipy.stats import pearsonr
+import joblib
 from sklearn.linear_model import LinearRegression
 
 df = pd.read_csv("data/advertising_and_sales.csv", index_col="id")
