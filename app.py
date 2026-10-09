@@ -5,15 +5,12 @@ from dash import html, dcc, Input, Output
 import plotly.graph_objects as go
 from scipy.stats import pearsonr
 import joblib
-from sklearn.linear_model import LinearRegression
 
 df = pd.read_csv("data/advertising_and_sales.csv", index_col="id")
 
-def get_elasticities():
-    elasticity_advertising_roi = joblib.load("model/elasticity_advertising_roi.pkl")
-    return dict(zip(["TV", "Radio", "Social Media"], elasticity_advertising_roi.coef_))
+elasticity_advertising_roi_coef = dict(zip(["TV", "Radio", "Social Media"], elasticity_advertising_roi.coef_))
 
-elasticities = get_elasticities()
+elasticities = elasticity_advertising_roi_coef
 mean_margin = df["sales"].mean() - (df["tv"].mean() + df["radio"].mean() + df["social_media"].mean())
 
 app = dash.Dash(__name__)
