@@ -8,6 +8,7 @@ import joblib
 
 df = pd.read_csv("data/advertising_and_sales.csv", index_col="id")
 
+elasticity_advertising_roi = joblib.load("model/elasticity_advertising_roi.pkl")
 elasticity_advertising_roi_coef = dict(zip(["TV", "Radio", "Social Media"], elasticity_advertising_roi.coef_))
 
 elasticities = elasticity_advertising_roi_coef
