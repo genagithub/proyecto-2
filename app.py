@@ -8,10 +8,8 @@ import joblib
 
 df = pd.read_csv("data/advertising_and_sales.csv", index_col="id")
 
-elasticity_advertising_roi = joblib.load("model/elasticity_advertising_roi.pkl")
-elasticity_advertising_roi_coef = dict(zip(["TV", "Radio", "Social Media"], elasticity_advertising_roi.coef_))
-
-elasticities = elasticity_advertising_roi_coef
+elasticity_roi_advertising = joblib.load("model/elasticity_roi_advertising.pkl")
+elasticities = dict(zip(["TV", "Radio", "Social Media"], elasticity_roi_advertising.coef_))
 mean_margin = df["sales"].mean() - (df["tv"].mean() + df["radio"].mean() + df["social_media"].mean())
 
 app = dash.Dash(__name__)
@@ -61,8 +59,7 @@ def update_strategy(rebalance_pct):
     cost_tv_orig = df["tv"].mean()
     money_change = cost_tv_orig * (rebalance_pct / 100)
     
-    piechart = go.Figure(data=[go.Pie(labels=["TV", "Radio", "RRSS"], 
-                                      values=[df["tv"].mean(), df["radio"].mean(), df["social_media"].mean()])])
+    piechart = go.Figure(data=[go.Pie(labels=["TV", "Radio", "RRSS"], values=[df["tv"].mean(), df["radio"].mean(), df["social_media"].mean()])])
     piechart.update_layout(title="Distribución Actual del Gasto")
 
     barchart = go.Figure([go.Bar(x=list(elasticities.keys()), y=list(elasticities.values()), marker_color="indigo")])
