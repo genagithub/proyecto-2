@@ -5,7 +5,7 @@ Los sectores de marketing y finanzas invierten grandes sumas de dinero en public
 
 --- 
 
-#### 💡 Hallazgos Clave de la Investigación (Frontera de Eficiencia)
+#### 💡 Hallazgos Clave (Insights): Frontera de Eficiencia
 El Análisis Exploratorio de Datos y el estudio de la frontera de eficiencia revelaron una estructura estable pero también ineficiencias críticas en la estrategia actual:
 - **Rendimientos Volátiles en TV:** El canal de Televisión garantiza un gran volumen de masa de clientes, pero el gasto actual superó el punto de equilibrio óptimo, es decir, invertir más dinero en TV ya no genera más la misma seguridad.
 - **Gasto Ineficiente:** El análisis histórico demostró que se lograron niveles de ingresos idénticos usando presupuestos significativamente menores, lo que lleva al siguiente insight: la empresa está gastando de más.
