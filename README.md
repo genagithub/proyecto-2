@@ -1,7 +1,8 @@
 ### 📉 Optimización de Presupuesto Publicitario (Marketing Mix Modeling)
 
 #### 🎯 Contexto del Problema de Negocio 
-Los sectores de marketing y finanzas invierten grandes sumas de dinero en publicidad en múltiples canales (TV, Radio y Social Media) sin saber con certeza si cada dólar invertido está generando el máximo retorno posible, históricamente la empresa opera bajo una distribución jerárquica (tradicional), donde el canal de TV absorbe la gran mayoría del presupuesto por una amplia diferencia sin considerar su elasticidad respecto a las ventas. El objetivo es mediante un histórico de campañas de los últimos 5 años (con ciclos de 2 meses) modelar y cuantificar el retorno de inversión, a partir de ahí automatizar una redistribución óptima del presupuesto que maximice los ingresos por ventas, reduciendo la saturación financiera en canales de alto volumen y eliminando ineficiencias en el gasto.
+Los sectores de marketing y finanzas invierten grandes sumas de dinero en publicidad en múltiples canales (TV, Radio y Social Media) sin saber con certeza si cada dólar invertido está generando el máximo retorno posible, históricamente la empresa opera bajo una distribución jerárquica (tradicional), donde el canal de TV absorbe la gran mayoría del presupuesto por una amplia diferencia sin considerar su elasticidad respecto a las ventas. 
+El objetivo es mediante un histórico de campañas de los últimos 5 años (con ciclos de 2 meses) modelar y cuantificar el retorno de inversión. A partir de este modelado estadístico, automatizar una redistribución óptima del presupuesto que maximice los ingresos por ventas, reduciendo la saturación financiera en canales de alto volumen y eliminando ineficiencias en el gasto.
 
 --- 
 
