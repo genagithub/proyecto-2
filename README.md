@@ -17,9 +17,10 @@ El Análisis Exploratorio de Datos y el estudio de la frontera de eficiencia rev
 
 #### 🛠️ Enfoque Técnico y Modelado
 Previo a implementar cualquier rebalanceo de presupuesto, se probó la precisión en un modelado lineal basado en costos (X) e ingresos (Y). En lugar de entrenar una regresión lineal tradicional que promedie el desempeño general (lo cual arrastraría los errores del gasto ineficiente), se aplicó un enfoque avanzado:
-- **Filtrado por Frontera de Eficiencia:** Se aisló el cuantil superior (top 12%) de los datos históricos en base a su ROI, para aprender a replicar los éxitos de negocio del pasado utilizando este umbral.
-- **Regresión Lineal Segmentada:** El algoritmo se entrenó exclusivamente sobre estos escenarios ideales y de forma específica para la variable de inversión en el canal de TV, considerándola como la mayor asociada linealmente con la variable objetivo. 
-- **Validación de Supuestos de Gauss-Markov:** Se realizaron pruebas estadísticas rigurosas para asegurar la normalidad en los residuos, control de outliers y correlación de variables, garantizando que el modelo es estadísticamente confiable.
+- **Validación de Supuestos de Gauss-Markov:** Se realizaron pruebas estadísticas como test de ANOVA para la variable cualitativa, control de homocedasticidad, detección de outliers y correlación de variables, garantizando que el modelo es estadísticamente confiable.
+- **Modelado de Elasticidad (Relación Porcentual):** Se implementó una transformación de Log-Log tanto en la variable X como en la variable Y, permitiendo capturar la elasticidad publicitaria, donde los esfuerzos de marketing impactan de forma proporcional y no lineal, y estabilizando la varianza de ingresos en los períodos de alta inversión.
+- **Regresión Lineal Sesgada en Eficiencia:** El algoritmo se entrenó exclusivamente sobre estos escenarios ideales y de forma específica para la variable de inversión en el canal de TV, considerándola como la mayor asociada linealmente con la variable objetivo. 
+.
 
 ---
 
