@@ -9,8 +9,8 @@ El objetivo es mediante un histórico de campañas consolidadas en los últimos 
 
 #### 💡 Hallazgos Clave (Insights): Frontera de Eficiencia
 El Análisis Exploratorio de Datos y el estudio de la frontera de eficiencia revelaron una estructura estable pero también ineficiencias críticas en la estrategia actual:
-- **Rendimientos Volátiles en TV:** El canal de Televisión garantiza un gran volumen de masa de clientes, pero el gasto actual superó el punto de equilibrio óptimo, es decir, invertir más dinero en TV ya no genera más la misma seguridad.
-- **Gasto Ineficiente:** El análisis histórico demostró que se lograron niveles de ingresos idénticos usando presupuestos significativamente menores, lo que lleva al siguiente insight: la empresa está gastando de más.
+- **Rendimientos Volátiles en TV:** El canal de Televisión garantiza un gran volumen de masa de clientes pero el gasto actual superó el punto de equilibrio óptimo, es decir, invertir más dinero ya no genera más la misma seguridad.
+- **Gasto Ineficiente:** El análisis histórico demostró que se lograron niveles de ingresos idénticos usando presupuestos significativamente menores, lo que lleva al siguiente insight: hay un gasto excesivo cuando la posibilidad de generar lo mismo con menos existe.
 - **El Potencial Oculto:** El canal de Radio (~15% de retorno) presenta un costo marginal mucho menor y una mayor agilidad de retorno por cada dólar invertido.
 
 ---
