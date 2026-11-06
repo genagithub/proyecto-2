@@ -32,5 +32,5 @@ El resultado final es una herramienta interactiva diseñada para la asignación 
 
 ---
 
-#### 🎯 Propósito: Impacto Directo
+#### 🎯 Propósito: Impacto Directo (Discovery)
 **Reingeniería de la cartera de inversión:** A través de auditoría analítica propone optimizar el capital existente mediante la desinversión parcial en medios tradicionales de Televisión —cuyo rendimiento ha entrado en una fase de estancamiento— y ejecutar una reasignación táctica de esos recursos principalmente hacia la Radio, actuando como un motor de recomendación estratégica para la toma de decisiones ejecutivas. Esta diversificación inteligente no solo maximizará el margen neto por campaña, sino que también acelerará el retorno de inversión (ROI), dinamizando el flujo de caja operativo.
