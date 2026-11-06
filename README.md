@@ -28,9 +28,9 @@ Previo a implementar cualquier rebalanceo de presupuesto, se probó la precisió
 El resultado final es una herramienta interactiva diseñada para la asignación eficiente de recursos, transformando los datos históricos de pauta publicitaria en un entorno seguro de simulación financiera que opera bajo tres capacidades clave:
 - **Auditoría de Inversión:** Analiza de forma previa la distribución actual de los canales, midiendo con precisión su proporción en los costos totales para detectar oportunidades de retorno marginal desaprovechadas.
 - **Simulación de Presupuesto:** Permite mover palancas de inversión de forma específica para los canales TV y Radio específicamente, evaluando diferentes escenarios de distribución.
-- **Rebalanceo Seguro del Mix de Medios:** Faculta al equipo a redistribuir el presupuesto estratégico bajo la frontera de eficiencia, visualizando el impacto en los ingresos antes de ejecutar la inversión real en el mercado.
+- **Rebalanceo Seguro del Mix de Medios:** Faculta al equipo a redistribuir el presupuesto histórico bajo la frontera de eficiencia, visualizando el impacto estratégico en los ingresos antes de ejecutar la inversión real en el mercado.
 
 ---
 
 #### 🎯 Propósito: Impacto Directo
-**Reingeniería de la cartera de inversión:** Propone optimizar el capital existente mediante la desinversión parcial en medios tradicionales de Televisión —cuyo rendimiento ha entrado en una fase de estancamiento— y ejecutar una reasignación táctica de esos recursos principalmente hacia la Radio. Esta diversificación inteligente no solo maximizará el margen neto por campaña, sino que también acelerará el retorno de inversión (ROI), dinamizando el flujo de caja operativo.
+**Reingeniería de la cartera de inversión:** A través de auditoría analítica propone optimizar el capital existente mediante la desinversión parcial en medios tradicionales de Televisión —cuyo rendimiento ha entrado en una fase de estancamiento— y ejecutar una reasignación táctica de esos recursos principalmente hacia la Radio, actuando como un motor de recomendación estratégica para la toma de decisiones ejecutivas. Esta diversificación inteligente no solo maximizará el margen neto por campaña, sino que también acelerará el retorno de inversión (ROI), dinamizando el flujo de caja operativo.
