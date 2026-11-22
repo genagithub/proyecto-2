@@ -17,10 +17,9 @@ El Análisis Exploratorio de Datos y el estudio de la frontera de eficiencia rev
 
 #### 🛠️ Enfoque técnico y modelado
 Previo a implementar cualquier rebalanceo de presupuesto, se probó la precisión en un modelado lineal basado en costos (X) e ingresos (Y). En lugar de entrenar una regresión lineal tradicional que promedie el desempeño general (lo cual arrastraría los errores del gasto ineficiente), se aplicó un enfoque avanzado:
-- **Validación de supuestos de Gauss-Markov:** Se realizaron pruebas estadísticas como test de ANOVA para la variable cualitativa, control de homocedasticidad, detección de outliers y correlación de variables, garantizando que el modelo es estadísticamente confiable.
-- **Modelado de elasticidad (relación porcentual):** Se implementó una transformación de Log-Log tanto en la variable X como en la variable Y, permitiendo capturar la elasticidad publicitaria, donde los esfuerzos de marketing impactan de forma proporcional y no lineal, y estabilizando la varianza de ingresos en los períodos de alta inversión.
-- **Regresión Lineal sesgada en eficiencia:** El algoritmo se entrenó exclusivamente sobre estos escenarios ideales y de forma específica para la variable de inversión en el canal de TV, considerándola como la mayor asociada linealmente con la variable objetivo. 
-.
+- **Validación de supuestos de Gauss-Markov:** Se realizaron pruebas estadísticas como test de ANOVA para la variable cualitativa, control de homocedasticidad, detección de outliers y correlación de variables, diagnosticando y corrigiendo desviaciones en la varianza mediante transformaciones logarítmicas para asegurar estimaciones robustas.
+- **Modelado de elasticidad (relación porcentual):** Se implementó una transformación de Log-Log tanto en las variables X como en la variable Y, permitiendo capturar la elasticidad publicitaria, donde los esfuerzos de marketing impactan de forma proporcional y no lineal, y estabilizando la varianza de ingresos en los períodos de alta inversión.
+- **Regresión Lineal entrenada sobre la frontera de eficiencia** El modelo se calibró sobre los escenarios de operación eficiente (tomando TV como eje principal por su alta asociación lineal) para estimar el potencial real de conversión sin distorsiones por sobre-inversión.
 
 ---
 
@@ -34,3 +33,8 @@ El resultado final es una herramienta interactiva diseñada para la asignación 
 
 #### 🎯 Propósito: Impacto directo (Discovery)
 **Reingeniería de la cartera de inversión:** A través de auditoría analítica propone optimizar el capital existente mediante la desinversión parcial en medios tradicionales de Televisión —cuyo rendimiento ha entrado en una fase de estancamiento— y ejecutar una reasignación táctica de esos recursos principalmente hacia la Radio, actuando como un motor de recomendación estratégica para la toma de decisiones ejecutivas. Esta diversificación inteligente no solo maximizará el margen neto por campaña, sino que también acelerará el retorno de inversión (ROI), dinamizando el flujo de caja operativo.
+
+---
+
+#### 📌 Recomendación accionables de negocio
+**Próximos pasos de modelado:** Para reducir el ~24,75% de variabilidad no explicada y corregir la no normalidad de los residuos, se sugiere incorporar variables externas de contexto (estacionalidad, promociones o precios) y evaluar modelos con términos de interacción (ej. TV × Radio) o regresión robusta.
